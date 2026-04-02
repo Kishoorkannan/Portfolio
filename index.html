@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishoor K - Web Developer & UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="shortcut icon" href="./images/k3.svg" type="image/svg+xml">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-circle-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-circle-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(168, 85, 246, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: 50px;
+            left: 5%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        .hero-banner {
+            position:relative;
+            max-width: max-content;
+            margin-inline: auto;
+            }
+
+        .hero-banner .w-100 {
+            
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            mask-size: auto;
+            -webkit-mask-size: auto;
+            border-radius: 500px;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-item {
+            position: relative;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #6366f1;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid #6366f1;
+            color: #6366f1;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: #718096;
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+            border-color: #6366f1;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 246, 0.1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #6366f1;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* Skill Progress */
+        .skill-item {
+            margin-bottom: 2rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.8s ease;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .project-image {
+            height: 250px;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #6366f1;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            color: #6366f1;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Experience Item */
+        .experience-item {
+            border-left: 3px solid #6366f1;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background: #6366f1;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #6366f1;
+        }
+
+        .experience-item:hover {
+            border-left-color: #a855f7;
+            padding-left: 2.5rem;
+        }
+
+        .experience-item:hover::before {
+            background: #a855f7;
+            box-shadow: 0 0 0 2px #a855f7;
+        }
+
+        .experience-role {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-period {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #6366f1;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        /* Education Card */
+        .education-card {
+            background: white;
+            border-left: 4px solid #6366f1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .education-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+        }
+
+        .education-degree {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form input,
+        .contact-form textarea {
+            background: white;
+            border: 1px solid #e2e8f0;
+            color: #2c3e50;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: white;
+        }
+
+        /* Social Icons */
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50%;
+            color: #6366f1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            border-color: #6366f1;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Sections */
+        .about-section,
+        .skills-section,
+        .contact-section {
+            background: white;
+        }
+
+        .experience-section,
+        .education-section {
+            background: #f8f9ff;
+        }
+
+        .projects-section {
+            background: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+        }
+
+        footer a {
+            color: #a8b5c9;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #6366f1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-circle-1,
+            .hero-circle-2 {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="nav-logo">KK</div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#contact" class="btn-primary px-6 py-2 rounded-lg text-white">Contact</a>
+            </div>
+            <button class="md:hidden text-xl text-gray-800" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section pt-20">
+        <div class="hero-circle-1"></div>
+        <div class="hero-circle-2"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in text-gray-900">
+                        Kishoor K
+                    </h1>
+                    <p class="text-2xl font-semibold mb-4 fade-in delay-1">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                            Web Developer & UI/UX Designer
+                        </span>
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 fade-in delay-2 leading-relaxed">
+                         I craft clean, modern, and responsive interfaces through visual design using tools like Figma, and I carry out usability testing to evaluate and improve designs based on real user feedback. My goal is to deliver solutions that are not only visually appealing but also highly functional, user-centric, and optimized for all devices.
+                    </p>
+                    <div class="flex gap-4 fade-in delay-3 flex-wrap">
+                        <button class="btn-primary px-8 py-3 rounded-lg text-white font-semibold" onclick="document.getElementById('contact').scrollIntoView()">
+                            <i class="fas fa-envelope mr-2"></i>Get In Touch
+                        </button>
+                        <button class="btn-secondary px-8 py-3 rounded-lg font-semibold" onclick="document.getElementById('projects').scrollIntoView()">
+                            <i class="fas fa-arrow-right mr-2"></i>View My Work
+                        </button>
+                    </div>
+                </div>
+                <div class="fade-in delay-2 flex justify-center">
+                    <figure class="hero-banner">
+                        <img src="./images/kishoor.jpg" width="560" height="540" alt="Kishoor" class="w-100"
+                            data-reveal="top">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Who I am and what drives me</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        I'm a passionate Web Developer and UI/UX Designer with a B.E. in Computer Science from SRM TRP Engineering College. With expertise in machine learning, deep learning, and modern web design, I bridge the gap between intelligent algorithms and beautiful user experiences.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        My journey spans from crafting intuitive UI/UX designs to building engaging digital experiences, including websites, mobile apps, posters, and logo designs. I believe in combining thoughtful design with modern technology to create impactful and user-centered solutions.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white border border-gray-200 p-6 rounded-lg hover:shadow-lg transition">
+                        <div class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">3+</div>
+                        <p class="text-gray-600">Internship Experiences</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 p-6 rounded-lg hover:shadow-lg transition">
+                        <div class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">5+</div>
+                        <p class="text-gray-600">Projects Completed</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 p-6 rounded-lg hover:shadow-lg transition">
+                        <div class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">AI</div>
+                        <p class="text-gray-600">Core Expertise</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 p-6 rounded-lg hover:shadow-lg transition">
+                        <div class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">Design</div>
+                        <p class="text-gray-600">Focused</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Services Section -->
+    <section id="skills" class="skills-section py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title">What I Do?</h2>
+            <p class="section-subtitle">I specialize in creating beautiful and functional digital solutions</p>
+
+            <!-- Service Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Crafting intuitive interfaces with user research and design thinking</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Design</h3>
+                    <p>Complete design process from wireframes to final UI</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Modern, responsive web designs at professional level</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Poster Design</h3>
+                    <p>Integrating smart AI features into designs</p>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <h3 class="text-2xl font-bold mb-8 text-gray-900">Technical Skills</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Design Tools -->
+                <div class="bg-white border border-gray-200 p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-6 text-gray-900">Design Tools</h4>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Figma</span>
+                                <span class="text-indigo-600">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Adobe XD</span>
+                                <span class="text-indigo-600">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Wireframing</span>
+                                <span class="text-indigo-600">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI/ML -->
+                <div class="bg-white border border-gray-200 p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-6 text-gray-900">Backend</h4>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span>
+                                <span class="text-indigo-600">70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>MySQL</span>
+                                <span class="text-indigo-600">70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Node Js</span>
+                                <span class="text-indigo-600">60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="bg-white border border-gray-200 p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-6 text-gray-900">Frontend</h4>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML & CSS</span>
+                                <span class="text-indigo-600">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Responsive Design</span>
+                                <span class="text-indigo-600">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span class="text-indigo-600">60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">My professional journey</p>
+
+            <div class="space-y-8">
+                <!-- Experience 1 -->
+                <div class="experience-item bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="experience-role">Data Science Intern</div>
+                            <div class="experience-company">Kiwistron</div>
+                        </div>
+                        <span class="experience-period">July - August 2024</span>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Developed face-emotion recognition system using TensorFlow Lite</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Built preprocessing and feature-extraction pipelines</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Deployed supervised ML models for production use</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Optimized model performance using Pandas and Python</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="experience-item bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="experience-role">Artificial Intelligence Intern</div>
+                            <div class="experience-company">Pantech E-Learning</div>
+                        </div>
+                        <span class="experience-period">June - July 2023</span>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Developed AI-powered web features and integrated intelligent functionalities into websites</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Built and deployed responsive websites using modern technologies</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Explored and implemented new AI tools in web development workflows</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Gained hands-on experience in combining AI with frontend and backend systems</li>
+                    </ul>
+                </div>
+
+                <!-- Education Timeline -->
+                <div class="experience-item bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="experience-role">B.E. Computer Science & Engineering</div>
+                            <div class="experience-company">SRM TRP Engineering College</div>
+                        </div>
+                        <span class="experience-period">2021 - 2025</span>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-star text-yellow-500 mr-3"></i>CGPA: 7.58 / 10</li>
+                        <li><i class="fas fa-check text-indigo-600 mr-3"></i>Focused on AI, ML, and Software Development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Check out some of my latest projects with creative ideas</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <figure class="card-banner" data-reveal="right">
+                        <img src="./images/p1.jpg" width="650" height="370" loading="lazy" alt="Web Design"
+                        class="w-100">
+                    </figure>
+                    <div class="project-content">
+                        <span class="project-tag">App Design</span>
+                        <h3 class="project-title">Travel App</h3>
+                        <p class="project-description">
+                            User-friendly travel app with intuitive interfaces, personalized recommendations, and seamless booking experiences.
+                        </p>
+                        <a href="https://www.figma.com/design/VORHdEH69o31RJrUZtDojW/Travel-App-Design" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <figure class="card-banner" data-reveal="right">
+                        <img src="./images/p2.jpg" width="650" height="370" loading="lazy" alt="Web Design"
+                        class="w-100">
+                    </figure>
+                    <div class="project-content">
+                        <span class="project-tag">App Design</span>
+                        <h3 class="project-title">Food Delivery App</h3>
+                        <p class="project-description">
+                            User-centric platform with seamless browsing, ordering, cart management, and real-time order tracking.
+                        </p>
+                        <a href="https://www.figma.com/design/URwXe4pkUyfhbnGt0T5itI/Food-Delivery-App-Design" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <figure class="card-banner" data-reveal="right">
+                        <img src="./images/p3.jpg" width="650" height="370" loading="lazy" alt="Web Design"
+                        class="w-100">
+                    </figure>
+                    <div class="project-content">
+                        <span class="project-tag">Poster Design</span>
+                        <h3 class="project-title">Travel Poster</h3>
+                        <p class="project-description">
+                            User-friendly travel platform with seamless browsing, booking, itinerary planning, and real-time trip updates 
+                        </p>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic background and certifications</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="education-card">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="education-degree">B.E. Computer Science & Engineering</h3>
+                            <p class="education-school">SRM TRP Engineering College</p>
+                        </div>
+                        <span class="experience-period">2021 - 2025</span>
+                    </div>
+                    <p class="text-gray-600">CGPA: <span class="font-bold text-indigo-600">7.58 / 10</span></p>
+                </div>
+
+                <div class="education-card">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="education-degree">12th CBSE</h3>
+                            <p class="education-school">Sri Vignesh Vidyalaya</p>
+                        </div>
+                        <span class="experience-period">62.80%</span>
+                    </div>
+                    <p class="text-gray-600">Advanced studies in Science stream</p>
+                </div>
+
+                <div class="education-card">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="education-degree">10th CBSE</h3>
+                            <p class="education-school">Sri Vignesh Vidyalaya</p>
+                        </div>
+                        <span class="experience-period">55.20%</span>
+                    </div>
+                    <p class="text-gray-600">Foundation level studies</p>
+                </div>
+
+                <div class="education-card">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="education-degree">Certifications</h3>
+                            <p class="education-school">Web Development & Python</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Specialized courses in web technologies and Python programming</p>
+                </div>
+            </div>
+
+            <!-- Conference -->
+            <div class="bg-white border-l-4 border-indigo-600 rounded-lg p-8">
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-presentation text-2xl text-indigo-600 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">International Conference</h3>
+                        <p class="text-gray-700 mb-2">
+                            International Conference on AI, Cybersecurity, and Emerging Technologies: Innovations in Healthcare, Agriculture, and Engineering (ICACET-IHAE 2025)
+                        </p>
+                        <p class="text-sm text-indigo-600"><i class="fas fa-check mr-2"></i>Research presented on AI innovations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title">If you like what you see, let's work together.</h2>
+            <p class="section-subtitle">I bring rapid solutions to make the life of my clients easier. Have any questions? Reach out to me and I will get back to you shortly.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-start gap-4">
+                            <div class="social-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Email</p>
+                                <a href="/cdn-cgi/l/email-protection#412a2832292e2e332a202f2f202f70747601262c20282d6f222e2c" class="text-blue-400 hover:text-blue-300 transition">
+                                    <span class="__cf_email__" data-cfemail="a5ceccd6cdcacad7cec4cbcbc4cb949092e5c2c8c4ccc98bc6cac8">[email&#160;protected]</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="social-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Phone</p>
+                                <a href="tel:+919361151801" class="text-blue-400 hover:text-blue-300 transition">
+                                    +91 9361151801
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="social-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Location</p>
+                                <p class="text-gray-300">Chennai, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <h3 class="text-xl font-bold mb-6">Connect With Me</h3>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/kishoor-kannan-40399b364/" target="_blank" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Kishoorkannan" target="_blank" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.me/+919361151801" target="_blank" class="social-icon" title="Twitter">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8">Send Me a Message</h3>
+                    <form id="contact-form" class="contact-form space-y-4" method="POST" action="https://api.web3forms.com/submit">
+                        <input type="hidden" name="access_key" value="116c6f8c-b713-44ec-a0ea-f0cefa45f4df" />
+
+                        <input 
+                            type="text" 
+                            name="name"
+                            placeholder="Your Name" 
+                            class="w-full" 
+                            required
+                        />
+                        <input 
+                            type="email" 
+                            name="email"
+                            placeholder="Your Email" 
+                            class="w-full" 
+                            required
+                        />
+                        <input 
+                            type="phonenumber" 
+                            name="phonenumber"
+                            placeholder="Phone Number" 
+                            class="w-full" 
+                            required
+                        />
+                        <textarea 
+                            name="message"
+                            placeholder="Your Message" 
+                            rows="5" 
+                            class="w-full" 
+                            required
+                        ></textarea>
+                        <button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Kishoor K</h4>
+                    <p class="text-gray-400">AI Engineer & UI/UX Designer creating intelligent solutions with beautiful interfaces.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#about" class="hover:text-indigo-400 transition">About</a></li>
+                        <li><a href="#skills" class="hover:text-indigo-400 transition">Skills</a></li>
+                        <li><a href="#experience" class="hover:text-indigo-400 transition">Experience</a></li>
+                        <li><a href="#projects" class="hover:text-indigo-400 transition">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-indigo-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="https://www.linkedin.com/in/kishoor-kannan-40399b364/" target="_blank" class="hover:text-indigo-400 transition">LinkedIn</a></li>
+                        <li><a href="https://github.com/Kishoorkannan" target="_blank" class="hover:text-indigo-400 transition">GitHub</a></li>
+                        <li><a href="https://wa.me/+919361151801" target="_blank" class="hover:text-indigo-400 transition">Whatsapp</a></li>
+                        
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">&copy; 2025 Kishoor K. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">Designed & Built with <span class="text-red-500">❤</span> by Kishoor K</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll behavior is set in CSS
+
+        // Form submission handler for Web3Forms
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('✅ Message sent successfully. Thank you! Redirecting now.');
+                    form.reset();
+                    // optional redirect after successful send
+                    window.location.href = 'https://web3forms.com/';
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Web3Forms error:', error);
+                alert('⚠️ Sorry, we could not send your message right now. Please try again later.');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            console.log('Mobile menu toggled');
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards and skill badges
+        document.querySelectorAll('.project-card, .education-card, .skill-badge').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+            
